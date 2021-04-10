@@ -9,7 +9,7 @@ mixin AssemblyContainer {
   List<Either<Assembly, AssemblyContainer>> get assemblies;
 }
 
-abstract class CompositeAssembly with AssemblyContainer {
+abstract class Assembler with AssemblyContainer {
   void register(Injector i) {
     _register(i, assemblies);
   }

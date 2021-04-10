@@ -3,7 +3,7 @@ import 'package:flutter_graphql_template/dependency_injection/assembly.dart';
 import 'package:flutter_graphql_template/utils/type/either.dart';
 import 'package:injector/injector.dart';
 
-class AppAssembly extends CompositeAssembly {
+class AppAssembler extends Assembler {
   @override
   List<Either<Assembly, AssemblyContainer>> get assemblies =>
       [Either.left(MyHomeAssembly())];
@@ -18,7 +18,7 @@ class MyHomeAssembly implements Assembly {
 }
 
 void main() {
-  final appAssembly = AppAssembly();
+  final appAssembly = AppAssembler();
   appAssembly.register(Injector.appInstance);
 
   runApp(MyApp());
@@ -53,6 +53,9 @@ class StupidCounter {
 
 class _MyHomePageState extends State<MyHomePage> {
   final StupidCounter _counter;
+
+  @override
+  List<Either<Assembly, AssemblyContainer>> get assemblies => [];
 
   _MyHomePageState(this._counter);
 
