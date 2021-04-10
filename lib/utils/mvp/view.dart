@@ -1,10 +1,8 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutter_graphql_template/utils/mvp/presenter.dart';
-
-mixin View {
-
+mixin View<T> {
+  late T presenter;
 }
 
-mixin ViewWithParam<T> implements View {
+mixin ViewWithParam<T, P> implements View<P> {
+  late P presenter;
   T get param;
 }

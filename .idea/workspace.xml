@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c02cea3-8954-40da-bbba-ddbdb09efe4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/utils/mvp/presenter.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/mvp/view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/counter_detail_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/my_home_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/dependency_injection/assembly.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dependency_injection/assembly.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/mvp/view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/mvp/view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1618065441595</updated>
       <workItem from="1618065444281" duration="4366000" />
-      <workItem from="1618074253091" duration="4663000" />
+      <workItem from="1618074253091" duration="6808000" />
     </task>
     <servers />
   </component>

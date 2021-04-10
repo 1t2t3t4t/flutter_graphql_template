@@ -1,8 +1,19 @@
+import 'package:flutter_graphql_template/utils/mvp/presenter.dart';
+import 'package:flutter_graphql_template/utils/mvp/view.dart';
 import 'package:flutter_graphql_template/utils/type/either.dart';
 import 'package:injector/injector.dart';
 
 abstract class Assembly {
   void register(Injector i);
+
+  TView boundModule<
+    TPresenter extends Presenter<TView>,
+    TView extends View<TPresenter>
+  >(TPresenter presenter, TView view) {
+    presenter.view = view;
+    view.presenter = presenter;
+    return view;
+  }
 }
 
 mixin AssemblyContainer {
