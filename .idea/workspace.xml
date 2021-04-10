@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c02cea3-8954-40da-bbba-ddbdb09efe4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/graphql/client/graphql_client.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/graphql/client/graphql_result.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/dialog/AlertDialogBuilder.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/dialog/AlertDialogController.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/graphql/graphql_generated/graphql.generated.graphql.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/graphql/graphql_generated/graphql.generated.graphql.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/graphql/graphql_generated/graphql.generated.graphql.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/graphql/graphql_generated/graphql.generated.graphql.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +21,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="s4cs6zfc" />
@@ -61,23 +63,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\flutter_graphql_template\lib\utils\dialog" />
       <recent name="C:\Projects\flutter_graphql_template\lib\graphql\fragment" />
       <recent name="C:\Projects\flutter_graphql_template\lib\graphql" />
       <recent name="C:\Projects\flutter_graphql_template\lib\graphql\fragment\user" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,6 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1618065441595</updated>
       <workItem from="1618065444281" duration="4366000" />
+      <workItem from="1618074253091" duration="615000" />
     </task>
     <servers />
   </component>
@@ -110,5 +101,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
