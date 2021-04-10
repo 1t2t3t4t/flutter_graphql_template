@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_graphql_template/counter_detail_page.dart';
+import 'package:flutter_graphql_template/utils/app_router.dart';
 import 'package:flutter_graphql_template/utils/mvp/presenter.dart';
 import 'package:flutter_graphql_template/utils/mvp/view.dart';
 import 'package:injector/injector.dart';
@@ -13,7 +14,7 @@ class MyHomeAssembly extends Assembly {
     i.registerDependency<MyHomePagePresenter>(() => MyHomePagePresenter());
     i.registerDependency<MyHomePageState>(() {
       final presenter = i.get<MyHomePagePresenter>();
-      final view = MyHomePageState();
+      final view = MyHomePageState(i.get());
       return boundModule(presenter, view);
     });
   }
@@ -38,7 +39,9 @@ class MyHomePagePresenter extends Presenter<MyHomePageState> {
 }
 
 class MyHomePageState extends State<MyHomePage> with View<MyHomePagePresenter> {
-  MyHomePageState();
+  final CustomRouter _router;
+
+  MyHomePageState(this._router);
 
   void _incrementCounter() {
     setState(() {
@@ -48,8 +51,7 @@ class MyHomePageState extends State<MyHomePage> with View<MyHomePagePresenter> {
 
   void tapGoToDetail() {
     final param = CounterDetailParam(presenter.counter);
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => CounterDetailPage(param)));
+    _router.push(CounterDetailPage(param), context);
   }
 
   @override
