@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c02cea3-8954-40da-bbba-ddbdb09efe4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/graphql/query/Countries.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/graphql/client/graphql_client.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/graphql/client/graphql_result.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/build.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/graphql/custom_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/graphql/custom_parser.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/graphql/fragment/UserFragment.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/lib/graphql/fragment/CountryFragment.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/graphql/query/user/GetUserDetail.graphql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/graphql/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/lib/graphql/schema.graphql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/update_graphql_schema.sh" beforeDir="false" afterPath="$PROJECT_DIR$/update_graphql_schema.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/graphql/graphql_generated/graphql.generated.graphql.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/graphql/graphql_generated/graphql.generated.graphql.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/graphql/graphql_generated/graphql.generated.graphql.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/graphql/graphql_generated/graphql.generated.graphql.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Dart File" />
         <option value="GraphQL File" />
+        <option value="Dart File" />
       </list>
     </option>
   </component>
@@ -86,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618065441595</updated>
-      <workItem from="1618065444281" duration="2447000" />
+      <workItem from="1618065444281" duration="4366000" />
     </task>
     <servers />
   </component>
