@@ -24,7 +24,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   # CORE DEPS
@@ -35,7 +34,9 @@ dependencies:
   graphql: ^4.0.1
   equatable: ^2.0.0
   gql: '>=0.12.3 <1.0.0'
+  injector: ^2.0.0
 
+  # Add other dependencies below here
   # DEPS
 
 dev_dependencies:

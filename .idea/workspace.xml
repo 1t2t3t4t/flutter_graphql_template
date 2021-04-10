@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c02cea3-8954-40da-bbba-ddbdb09efe4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/utils/loading_indicator/LoadingIndicatorController.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/loading_indicator/default_loading_indicator.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/spacing.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/dependency_injection/assembly.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/type/either.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1618065441595</updated>
       <workItem from="1618065444281" duration="4366000" />
-      <workItem from="1618074253091" duration="923000" />
+      <workItem from="1618074253091" duration="3371000" />
     </task>
     <servers />
   </component>
