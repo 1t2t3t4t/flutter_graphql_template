@@ -1,0 +1,26 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          any_map: false
+          checked: false
+          create_factory: true
+          create_to_json: true
+          disallow_unrecognized_keys: false
+          explicit_to_json: false
+          field_rename: none
+          generic_argument_factories: false
+          ignore_unannotated: false
+          include_if_null: true
+      artemis:
+        options:
+          fragments_glob: lib/graphql/fragment/**.graphql
+          schema_mapping:
+            - output: lib/graphql/graphql_generated/graphql.generated.dart
+              schema: lib/graphql/schema.graphql
+              queries_glob: lib/graphql/query/**.graphql
+          custom_parser_import: 'package:flutter_graphql_template/graphql/custom_parser.dart'
+          scalar_mapping:
+            - graphql_type: Upload
+              dart_type: MultipartFile

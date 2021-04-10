@@ -1,0 +1,7 @@
+fragment CountryFragment on Country {
+    name
+    languages {
+        code
+        name
+    }
+}
