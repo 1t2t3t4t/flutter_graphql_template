@@ -7,7 +7,7 @@ import 'package:json_annotation/json_annotation.dart' as JSON;
 import 'graphql_result.dart';
 
 abstract class GraphqlLinkProvider {
-  Link link({ Map<String, String> headers });
+  Link link({Map<String, String> headers});
 }
 
 abstract class GraphqlBearerTokenProvider {
@@ -23,11 +23,10 @@ abstract class GraphqlClientWrapper {
 }
 
 class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
-
   final GraphqlLinkProvider _linkProvider;
   final GraphqlBearerTokenProvider? tokenProvider;
 
-  GraphqlClientWrapperImpl(this._linkProvider, { this.tokenProvider });
+  GraphqlClientWrapperImpl(this._linkProvider, {this.tokenProvider});
 
   @override
   Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(

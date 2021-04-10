@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c02cea3-8954-40da-bbba-ddbdb09efe4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/utils/dialog/AlertDialogBuilder.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/dialog/AlertDialogController.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/loading_indicator/LoadingIndicatorController.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/loading_indicator/default_loading_indicator.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/spacing.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +64,27 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\flutter_graphql_template\lib\utils\loading_indicator" />
       <recent name="C:\Projects\flutter_graphql_template\lib\utils\dialog" />
       <recent name="C:\Projects\flutter_graphql_template\lib\graphql\fragment" />
       <recent name="C:\Projects\flutter_graphql_template\lib\graphql" />
       <recent name="C:\Projects\flutter_graphql_template\lib\graphql\fragment\user" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -78,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1618065441595</updated>
       <workItem from="1618065444281" duration="4366000" />
-      <workItem from="1618074253091" duration="615000" />
+      <workItem from="1618074253091" duration="923000" />
     </task>
     <servers />
   </component>

@@ -14,7 +14,7 @@ class GraphQLResult<T> {
 
   OperationException? exception;
 
-  GraphQLResult.from(QueryResult result, { this.data })
+  GraphQLResult.from(QueryResult result, {this.data})
       : exception = result.exception,
         source = result.source,
         timestamp = result.timestamp;
