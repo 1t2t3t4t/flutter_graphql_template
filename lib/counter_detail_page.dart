@@ -6,7 +6,6 @@ import 'package:flutter_graphql_template/utils/mvp/view.dart';
 import 'package:injector/injector.dart';
 
 class CounterDetailAssembly extends Assembly {
-
   @override
   void register(Injector i) {
     i.registerDependency<CounterDetailPagePresenter>(() => CounterDetailPagePresenter());
@@ -25,7 +24,6 @@ class CounterDetailParam {
 }
 
 class CounterDetailPage extends StatefulWidget {
-
   final CounterDetailParam param;
 
   CounterDetailPage(this.param);
@@ -40,8 +38,8 @@ class CounterDetailPagePresenter extends Presenter<CounterDetailPageState> {
   }
 }
 
-class CounterDetailPageState extends State<CounterDetailPage> with ViewWithParam<CounterDetailParam, CounterDetailPagePresenter> {
-
+class CounterDetailPageState extends State<CounterDetailPage>
+    with ViewWithParam<CounterDetailParam, CounterDetailPagePresenter> {
   @override
   CounterDetailParam get param {
     return widget.param;
