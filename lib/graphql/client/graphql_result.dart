@@ -7,7 +7,7 @@ class GraphQLResult<T> {
   ///
   /// null when unexecuted.
   /// Will be set when encountering an error during any execution attempt
-  QueryResultSource source;
+  QueryResultSource? source;
 
   /// List<dynamic> or Map<String, dynamic>
   T? data;

@@ -1,71 +1,60 @@
-import 'dart:io';
-
 import 'package:artemis/artemis.dart';
 import 'package:graphql/client.dart';
 import 'package:json_annotation/json_annotation.dart' as JSON;
 
 import 'graphql_result.dart';
 
-abstract class GraphqlLinkProvider {
-  Link link({Map<String, String> headers});
-}
-
 abstract class GraphqlBearerTokenProvider {
   String? token();
 }
 
 abstract class GraphqlClientWrapper {
-  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> query);
-
-  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> query);
+  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query);
+  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query);
 }
 
 class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
-  final GraphqlLinkProvider _linkProvider;
+  final Link _link;
   final GraphqlBearerTokenProvider? tokenProvider;
 
-  GraphqlClientWrapperImpl(this._linkProvider, {this.tokenProvider});
+  GraphqlClientWrapperImpl(this._link, {this.tokenProvider});
 
   @override
-  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> query) async {
+  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query) async {
     final options = _mapQuery(query);
     final client = await _getClient();
     final result = await client.query(options);
     T? mappedData;
-    if (result.data != null) {
-      mappedData = query.parse(result.data);
+    final data = result.data;
+    if (data != null) {
+      mappedData = query.parse(data);
     }
     return GraphQLResult.from(result, data: mappedData);
   }
 
   @override
-  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> mutation) async {
+  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> mutation) async {
     final options = _mapMutation(mutation);
     final client = await _getClient();
     final result = await client.mutate(options);
     T? mappedData;
-    if (result.data != null) {
-      mappedData = mutation.parse(result.data);
+    final data = result.data;
+    if (data != null) {
+      mappedData = mutation.parse(data);
     }
     return GraphQLResult.from(result, data: mappedData);
   }
 
   QueryOptions _mapQuery(GraphQLQuery query) {
-    return QueryOptions(
-        document: query.document, variables: query.getVariablesMap());
+    return QueryOptions(document: query.document, variables: query.getVariablesMap());
   }
 
   MutationOptions _mapMutation(GraphQLQuery mutation) {
-    return MutationOptions(
-        document: mutation.document, variables: mutation.getVariablesMap());
+    return MutationOptions(document: mutation.document, variables: mutation.getVariablesMap());
   }
 
   Future<GraphQLClient> _getClient() async {
-    final gqlLink = _linkProvider.link();
+    final gqlLink = _link;
     final token = tokenProvider?.token();
     if (token != null) {
       AuthLink authLink = AuthLink(getToken: () => 'Bearer $token');
