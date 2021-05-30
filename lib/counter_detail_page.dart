@@ -8,7 +8,8 @@ import 'package:injector/injector.dart';
 class CounterDetailAssembly extends Assembly {
   @override
   void register(Injector i) {
-    i.registerDependency<CounterDetailPagePresenter>(() => CounterDetailPagePresenter());
+    i.registerDependency<CounterDetailPagePresenter>(
+        () => CounterDetailPagePresenter());
     i.registerDependency<CounterDetailPageState>(() {
       final presenter = i.get<CounterDetailPagePresenter>();
       final view = CounterDetailPageState();

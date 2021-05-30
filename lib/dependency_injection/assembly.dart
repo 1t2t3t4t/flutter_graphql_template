@@ -6,10 +6,8 @@ import 'package:injector/injector.dart';
 abstract class Assembly {
   void register(Injector i);
 
-  TView boundModule<
-    TPresenter extends Presenter<TView>,
-    TView extends View<TPresenter>
-  >(TPresenter presenter, TView view) {
+  TView boundModule<TPresenter extends Presenter<TView>,
+      TView extends View<TPresenter>>(TPresenter presenter, TView view) {
     presenter.view = view;
     view.presenter = presenter;
     return view;

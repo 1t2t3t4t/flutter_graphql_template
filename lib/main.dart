@@ -10,14 +10,13 @@ import 'my_home_page.dart';
 class AppAssembler extends Assembler {
   @override
   List<Either<Assembly, AssemblyContainer>> get assemblies => [
-    Either.left(MyHomeAssembly()),
-    Either.left(CounterDetailAssembly()),
-    Either.left(CommonAssembly())
-  ];
+        Either.left(MyHomeAssembly()),
+        Either.left(CounterDetailAssembly()),
+        Either.left(CommonAssembly())
+      ];
 }
 
 class CommonAssembly extends Assembly {
-
   @override
   void register(Injector i) {
     i.registerDependency<CustomRouter>(() => MainAppRouter());
@@ -43,4 +42,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

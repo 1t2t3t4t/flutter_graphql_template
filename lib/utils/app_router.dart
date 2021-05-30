@@ -46,8 +46,8 @@ class MainAppRouter implements CustomRouter {
       return Navigator.of(context).pushAndRemoveUntil(
           _createRoute(targetRoute, customPageRoute), (r) => false);
     } else {
-      return Navigator.of(context).push(
-          _createRoute(targetRoute, customPageRoute));
+      return Navigator.of(context)
+          .push(_createRoute(targetRoute, customPageRoute));
     }
   }
 

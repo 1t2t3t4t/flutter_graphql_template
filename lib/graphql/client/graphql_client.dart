@@ -9,8 +9,10 @@ abstract class GraphqlBearerTokenProvider {
 }
 
 abstract class GraphqlClientWrapper {
-  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query);
-  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query);
+  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(
+      GraphQLQuery<T, U> query);
+  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(
+      GraphQLQuery<T, U> query);
 }
 
 class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
@@ -20,7 +22,8 @@ class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
   GraphqlClientWrapperImpl(this._link, {this.tokenProvider});
 
   @override
-  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query) async {
+  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(
+      GraphQLQuery<T, U> query) async {
     final options = _mapQuery(query);
     final client = await _getClient();
     final result = await client.query(options);
@@ -33,7 +36,8 @@ class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
   }
 
   @override
-  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> mutation) async {
+  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(
+      GraphQLQuery<T, U> mutation) async {
     final options = _mapMutation(mutation);
     final client = await _getClient();
     final result = await client.mutate(options);
@@ -46,11 +50,13 @@ class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
   }
 
   QueryOptions _mapQuery(GraphQLQuery query) {
-    return QueryOptions(document: query.document, variables: query.getVariablesMap());
+    return QueryOptions(
+        document: query.document, variables: query.getVariablesMap());
   }
 
   MutationOptions _mapMutation(GraphQLQuery mutation) {
-    return MutationOptions(document: mutation.document, variables: mutation.getVariablesMap());
+    return MutationOptions(
+        document: mutation.document, variables: mutation.getVariablesMap());
   }
 
   Future<GraphQLClient> _getClient() async {
