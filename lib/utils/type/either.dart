@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class Either<TLeft, TRight> {
   final TLeft? _left;
   final TRight? _right;
