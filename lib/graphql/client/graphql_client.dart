@@ -1,11 +1,13 @@
+import 'dart:async';
+
 import 'package:artemis/artemis.dart';
 import 'package:graphql/client.dart';
 import 'package:json_annotation/json_annotation.dart' as JSON;
 
 import 'graphql_result.dart';
 
-abstract class GraphqlBearerTokenProvider {
-  String? token();
+mixin GraphqlBearerTokenProvider {
+  FutureOr<String?> token();
 }
 
 abstract class GraphqlClientWrapper {
@@ -61,7 +63,7 @@ class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
 
   Future<GraphQLClient> _getClient() async {
     final gqlLink = _link;
-    final token = tokenProvider?.token();
+    final token = await tokenProvider?.token();
     if (token != null) {
       AuthLink authLink = AuthLink(getToken: () => 'Bearer $token');
       Link link = Link.from([authLink, gqlLink]);
