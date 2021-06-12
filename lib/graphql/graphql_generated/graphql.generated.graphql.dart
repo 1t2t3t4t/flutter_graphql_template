@@ -22,6 +22,7 @@ class Countries$Query$Country extends JsonSerializable
 
   @override
   List<Object?> get props => [name, languages];
+  @override
   Map<String, dynamic> toJson() => _$Countries$Query$CountryToJson(this);
 }
 
@@ -36,6 +37,7 @@ class Countries$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [countries];
+  @override
   Map<String, dynamic> toJson() => _$Countries$QueryToJson(this);
 }
 
@@ -53,6 +55,7 @@ class CountryFragmentMixin$Language extends JsonSerializable
 
   @override
   List<Object?> get props => [code, name];
+  @override
   Map<String, dynamic> toJson() => _$CountryFragmentMixin$LanguageToJson(this);
 }
 

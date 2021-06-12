@@ -28,7 +28,7 @@ packages:
       name: artemis
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.0.0-beta.11"
+    version: "7.0.0-beta.13"
   async:
     dependency: transitive
     description:
@@ -235,13 +235,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.13.0"
-  gql_code_builder_temp:
+  gql_code_builder:
     dependency: transitive
     description:
-      name: gql_code_builder_temp
+      name: gql_code_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0-nullsafety.1"
+    version: "0.2.0"
   gql_dedupe_link:
     dependency: transitive
     description:
