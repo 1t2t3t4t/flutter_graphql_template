@@ -6,20 +6,20 @@ import 'graphql_client.dart';
 import 'graphql_result.dart';
 
 mixin GraphqlSubscriptionClient {
-  Future<Stream<GraphQLResult<T>>> subscribe<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> query);
+  Future<Stream<GraphQLResult<T>>>
+      subscribe<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query);
 }
 
 class GraphqlSubscriptionClientImpl with GraphqlSubscriptionClient {
-
   WebSocketLink _webSocketLink;
   final GraphqlBearerTokenProvider? tokenProvider;
 
-  GraphqlSubscriptionClientImpl(this._webSocketLink, { this.tokenProvider });
+  GraphqlSubscriptionClientImpl(this._webSocketLink, {this.tokenProvider});
 
   @override
-  Future<Stream<GraphQLResult<T>>> subscribe<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> subscription) async {
+  Future<Stream<GraphQLResult<T>>>
+      subscribe<T, U extends JSON.JsonSerializable>(
+          GraphQLQuery<T, U> subscription) async {
     final options = _mapSubscription(subscription);
     final client = await _getClient();
     return client.subscribe(options).map((event) {
@@ -34,7 +34,8 @@ class GraphqlSubscriptionClientImpl with GraphqlSubscriptionClient {
 
   SubscriptionOptions _mapSubscription(GraphQLQuery subscription) {
     return SubscriptionOptions(
-        document: subscription.document, variables: subscription.getVariablesMap());
+        document: subscription.document,
+        variables: subscription.getVariablesMap());
   }
 
   Future<GraphQLClient> _getClient() async {
