@@ -15,11 +15,11 @@ targets:
           include_if_null: true
       artemis:
         options:
-          fragments_glob: lib/graphql/fragment/**.graphql
+          fragments_glob: lib/graphql/definition/fragment/**.graphql
           schema_mapping:
             - output: lib/graphql/graphql_generated/graphql.generated.dart
               schema: lib/graphql/schema.graphql
-              queries_glob: lib/graphql/query/**.graphql
+              queries_glob: lib/graphql/definition/query/**.graphql
           custom_parser_import: 'package:flutter_graphql_template/graphql/custom_parser.dart'
           scalar_mapping:
             - graphql_type: Upload
