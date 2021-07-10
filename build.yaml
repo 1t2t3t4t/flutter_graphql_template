@@ -20,7 +20,11 @@ targets:
             - output: lib/graphql/graphql_generated/graphql.generated.dart
               schema: lib/graphql/schema.graphql
               queries_glob: lib/graphql/definition/query/**.graphql
-          custom_parser_import: 'package:flutter_graphql_template/graphql/custom_parser.dart'
           scalar_mapping:
             - graphql_type: Upload
-              dart_type: MultipartFile
+              custom_parser_import: 'package:flutter_graphql_template/graphql/custom_parser.dart'
+              dart_type:
+                name: MultipartFile
+                imports:
+                  - 'package:http/http.dart'
+              use_custom_parser: true
