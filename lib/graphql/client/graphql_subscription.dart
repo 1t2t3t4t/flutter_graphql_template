@@ -1,32 +1,22 @@
-import 'package:artemis/schema/graphql_query.dart';
-import 'package:graphql/client.dart';
-import 'package:json_annotation/json_annotation.dart' as JSON;
+part of 'graphql_client.dart';
 
-import 'graphql_client.dart';
-import 'graphql_result.dart';
-
-mixin GraphqlSubscriptionClient {
+mixin GraphqlSubscriptionClient implements GraphqlClientWrapper {
   Future<void> initializeClient();
-
-  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> query);
-  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> query);
 
   Future<Stream<GraphQLResult<T>>>
       subscribe<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query);
 }
 
-class GraphqlSubscriptionClientImpl with GraphqlSubscriptionClient {
-  WebSocketLink _webSocketLink;
-  final GraphqlBearerTokenProvider? tokenProvider;
-
+class GraphqlSubscriptionClientImpl extends GraphqlClientWrapperImpl
+    with GraphqlSubscriptionClient {
   late GraphQLClient _client;
 
-  GraphqlSubscriptionClientImpl(this._webSocketLink, {this.tokenProvider});
+  GraphqlSubscriptionClientImpl(WebSocketLink webSocketLink,
+      {GraphqlBearerTokenProvider? tokenProvider})
+      : super(webSocketLink, tokenProvider: tokenProvider);
 
   Future<void> initializeClient() async {
-    final gqlLink = _webSocketLink;
+    final gqlLink = _link;
     final token = await tokenProvider?.token();
     if (token != null) {
       AuthLink authLink = AuthLink(getToken: () => 'Bearer $token');
@@ -39,47 +29,12 @@ class GraphqlSubscriptionClientImpl with GraphqlSubscriptionClient {
   }
 
   @override
-  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> query) async {
-    final options = _mapQuery(query);
-    final result = await _client.query(options);
-    T? mappedData;
-    final data = result.data;
-    if (data != null) {
-      mappedData = query.parse(data);
-    }
-    return GraphQLResult.from(result, data: mappedData);
-  }
-
-  @override
-  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(
-      GraphQLQuery<T, U> mutation) async {
-    final options = _mapMutation(mutation);
-    final result = await _client.mutate(options);
-    T? mappedData;
-    final data = result.data;
-    if (data != null) {
-      mappedData = mutation.parse(data);
-    }
-    return GraphQLResult.from(result, data: mappedData);
-  }
-
-  QueryOptions _mapQuery(GraphQLQuery query) {
-    return QueryOptions(
-        document: query.document, variables: query.getVariablesMap());
-  }
-
-  MutationOptions _mapMutation(GraphQLQuery mutation) {
-    return MutationOptions(
-        document: mutation.document, variables: mutation.getVariablesMap());
-  }
-
-  @override
   Future<Stream<GraphQLResult<T>>>
       subscribe<T, U extends JSON.JsonSerializable>(
           GraphQLQuery<T, U> subscription) async {
     final options = _mapSubscription(subscription);
-    return _client.subscribe(options).map((event) {
+    final client = await _getClient();
+    return client.subscribe(options).map((event) {
       T? mappedData;
       final data = event.data;
       if (data != null) {
@@ -94,4 +49,7 @@ class GraphqlSubscriptionClientImpl with GraphqlSubscriptionClient {
         document: subscription.document,
         variables: subscription.getVariablesMap());
   }
+
+  @override
+  FutureOr<GraphQLClient> _getClient() => _client;
 }

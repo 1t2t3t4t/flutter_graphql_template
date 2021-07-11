@@ -6,6 +6,8 @@ import 'package:json_annotation/json_annotation.dart' as JSON;
 
 import 'graphql_result.dart';
 
+part 'graphql_subscription.dart';
+
 mixin GraphqlBearerTokenProvider {
   FutureOr<String?> token();
 }
@@ -61,7 +63,7 @@ class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
         document: mutation.document, variables: mutation.getVariablesMap());
   }
 
-  Future<GraphQLClient> _getClient() async {
+  FutureOr<GraphQLClient> _getClient() async {
     final gqlLink = _link;
     final token = await tokenProvider?.token();
     if (token != null) {
