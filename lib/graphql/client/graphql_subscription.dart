@@ -1,7 +1,7 @@
 part of 'graphql_client.dart';
 
 mixin GraphqlSubscriptionClient implements GraphqlClientWrapper {
-  Future<void> initializeClient();
+  FutureOr<void> initializeClient();
 
   Future<Stream<GraphQLResult<T>>>
       subscribe<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query);
@@ -15,7 +15,8 @@ class GraphqlSubscriptionClientImpl extends GraphqlClientWrapperImpl
       {GraphqlBearerTokenProvider? tokenProvider})
       : super(webSocketLink, tokenProvider: tokenProvider);
 
-  Future<void> initializeClient() async {
+  @override
+  FutureOr<void> initializeClient() async {
     final gqlLink = _link;
     final token = await tokenProvider?.token();
     if (token != null) {
