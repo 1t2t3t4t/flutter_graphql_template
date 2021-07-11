@@ -5,6 +5,8 @@ import 'package:artemis/artemis.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
 import 'package:gql/ast.dart';
+import 'package:http/http.dart';
+import 'package:flutter_graphql_template/graphql/custom_parser.dart';
 part 'graphql.generated.graphql.g.dart';
 
 mixin CountryFragmentMixin {
