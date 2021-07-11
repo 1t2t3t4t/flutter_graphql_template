@@ -3,3 +3,7 @@ include: package:lint/analysis_options.yaml
 analyzer: 
   exclude: 
     [lib/graphql/**.generated.**.dart]
+
+linter:
+  rules:
+    no_logic_in_create_state: false
