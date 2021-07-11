@@ -1,4 +1,4 @@
-import 'package:graphql/client.dart';
+part of 'graphql_client.dart';
 
 class GraphQLResult<T> {
   DateTime timestamp;

@@ -4,9 +4,8 @@ import 'package:artemis/artemis.dart';
 import 'package:graphql/client.dart';
 import 'package:json_annotation/json_annotation.dart' as JSON;
 
-import 'graphql_result.dart';
-
 part 'graphql_subscription.dart';
+part 'graphql_result.dart';
 
 mixin GraphqlBearerTokenProvider {
   FutureOr<String?> token();
