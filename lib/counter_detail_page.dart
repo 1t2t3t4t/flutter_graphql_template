@@ -27,7 +27,7 @@ class CounterDetailParam {
 class CounterDetailPage extends StatefulWidget {
   final CounterDetailParam param;
 
-  CounterDetailPage(this.param);
+  const CounterDetailPage(this.param);
 
   @override
   State createState() => Injector.appInstance.get<CounterDetailPageState>();
@@ -49,7 +49,7 @@ class CounterDetailPageState extends State<CounterDetailPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Some title")),
+      appBar: AppBar(title: const Text("Some title")),
       body: Center(
         child: Text(presenter.countDetail),
       ),

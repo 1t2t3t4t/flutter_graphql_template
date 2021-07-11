@@ -3,6 +3,7 @@ mixin View<T> {
 }
 
 mixin ViewWithParam<T, P> implements View<P> {
+  @override
   late P presenter;
   T get param;
 }

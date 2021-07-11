@@ -23,6 +23,7 @@ class AlertDialogControllerImpl implements AlertDialogController {
     );
   }
 
+  @override
   void showAlert(BuildContext context, Widget dialog) {
     if (Platform.isIOS) {
       _showIOSAlert(context, dialog);

@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 class AlertDialogBuilder {
   Widget _title;
   Widget? _content;
-  List<Widget> _actions = [];
+  final List<Widget> _actions = [];
 
   final bool forceMaterial;
   final bool forceCupertino;
 
   AlertDialogBuilder(String title,
       {this.forceMaterial = false, this.forceCupertino = false})
-      : _title = Text(title, style: TextStyle(fontWeight: FontWeight.bold));
+      : _title = Text(title, style: const TextStyle(fontWeight: FontWeight.bold));
 
   factory AlertDialogBuilder.acknowledgeAlert(
       BuildContext context, String title,
@@ -32,25 +32,30 @@ class AlertDialogBuilder {
   }
 
   void setCustomContent(Widget content) {
-    _content = content;
+    _content = Container(child: content);
   }
 
   void addAction(BuildContext context,
       {bool isDestructiveAction = false,
       required String text,
-      void callback(String text)?,
-      void poppedCallback()?}) {
+      void Function(String text)? callback,
+      void Function()? poppedCallback}) {
     if (_shouldUseCupertino()) {
       _actions.add(CupertinoDialogAction(
-          child: Text(text),
           onPressed: () {
             if (callback != null) callback(text);
             Navigator.of(context).pop();
             poppedCallback?.call();
           },
-          isDestructiveAction: isDestructiveAction));
+          isDestructiveAction: isDestructiveAction,
+          child: Text(text)));
     } else {
       _actions.add(TextButton(
+        onPressed: () {
+          if (callback != null) callback(text);
+          Navigator.of(context).pop();
+          poppedCallback?.call();
+        },
         child: Text(
           text,
           style: TextStyle(
@@ -58,11 +63,6 @@ class AlertDialogBuilder {
               fontSize: 18,
               fontWeight: FontWeight.w600),
         ),
-        onPressed: () {
-          if (callback != null) callback(text);
-          Navigator.of(context).pop();
-          poppedCallback?.call();
-        },
       ));
     }
   }
@@ -84,7 +84,7 @@ class AlertDialogBuilder {
   }
 
   Widget build() {
-    assert(_actions.length > 0, "Should have at least one action");
+    assert(_actions.isNotEmpty, "Should have at least one action");
     return _shouldUseCupertino() ? _iOSDialog() : _materialDialog();
   }
 

@@ -25,7 +25,7 @@ abstract class CustomRouter {
   Future<T?> push<T extends Object>(Widget targetRoute, BuildContext context,
       {bool replaceRoot = false, CustomPageRoute? customPageRoute});
 
-  pop<T extends Object>(BuildContext context, [T values]);
+  void pop<T extends Object>(BuildContext context, [T values]);
 }
 
 class MainAppRouter implements CustomRouter {
@@ -36,7 +36,7 @@ class MainAppRouter implements CustomRouter {
   }
 
   @override
-  pop<T extends Object>(BuildContext context, [T? values]) {
+  void pop<T extends Object>(BuildContext context, [T? values]) {
     Navigator.of(context).pop(values);
   }
 

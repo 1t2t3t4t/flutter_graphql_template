@@ -1,6 +1,6 @@
 import 'dart:async';
 
-typedef void _Callback<T>(T value);
+typedef _Callback<T> = void Function(T value);
 
 class Debouncer<T> {
   Timer? _timer;

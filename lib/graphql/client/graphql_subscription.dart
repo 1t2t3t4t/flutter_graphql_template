@@ -4,7 +4,7 @@ mixin GraphqlSubscriptionClient implements GraphqlClientWrapper {
   FutureOr<void> initializeClient();
 
   Future<Stream<GraphQLResult<T>>>
-      subscribe<T, U extends JSON.JsonSerializable>(GraphQLQuery<T, U> query);
+      subscribe<T, U extends json.JsonSerializable>(GraphQLQuery<T, U> query);
 }
 
 class GraphqlSubscriptionClientImpl extends GraphqlClientWrapperImpl
@@ -20,8 +20,8 @@ class GraphqlSubscriptionClientImpl extends GraphqlClientWrapperImpl
     final gqlLink = _link;
     final token = await tokenProvider?.token();
     if (token != null) {
-      AuthLink authLink = AuthLink(getToken: () => 'Bearer $token');
-      Link link = Link.from([authLink, gqlLink]);
+      final AuthLink authLink = AuthLink(getToken: () => 'Bearer $token');
+      final Link link = Link.from([authLink, gqlLink]);
       _client = GraphQLClient(cache: GraphQLCache(), link: link);
     } else {
       _client =
@@ -31,7 +31,7 @@ class GraphqlSubscriptionClientImpl extends GraphqlClientWrapperImpl
 
   @override
   Future<Stream<GraphQLResult<T>>>
-      subscribe<T, U extends JSON.JsonSerializable>(
+      subscribe<T, U extends json.JsonSerializable>(
           GraphQLQuery<T, U> subscription) async {
     final options = _mapSubscription(subscription);
     final client = await _getClient();

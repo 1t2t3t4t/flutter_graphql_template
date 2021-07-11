@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:artemis/artemis.dart';
 import 'package:graphql/client.dart';
-import 'package:json_annotation/json_annotation.dart' as JSON;
+import 'package:json_annotation/json_annotation.dart' as json;
 
 part 'graphql_subscription.dart';
 part 'graphql_result.dart';
@@ -12,9 +12,9 @@ mixin GraphqlBearerTokenProvider {
 }
 
 abstract class GraphqlClientWrapper {
-  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(
+  Future<GraphQLResult<T>> query<T, U extends json.JsonSerializable>(
       GraphQLQuery<T, U> query);
-  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(
+  Future<GraphQLResult<T>> mutate<T, U extends json.JsonSerializable>(
       GraphQLQuery<T, U> query);
 }
 
@@ -25,7 +25,7 @@ class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
   GraphqlClientWrapperImpl(this._link, {this.tokenProvider});
 
   @override
-  Future<GraphQLResult<T>> query<T, U extends JSON.JsonSerializable>(
+  Future<GraphQLResult<T>> query<T, U extends json.JsonSerializable>(
       GraphQLQuery<T, U> query) async {
     final options = _mapQuery(query);
     final client = await _getClient();
@@ -39,7 +39,7 @@ class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
   }
 
   @override
-  Future<GraphQLResult<T>> mutate<T, U extends JSON.JsonSerializable>(
+  Future<GraphQLResult<T>> mutate<T, U extends json.JsonSerializable>(
       GraphQLQuery<T, U> mutation) async {
     final options = _mapMutation(mutation);
     final client = await _getClient();
@@ -66,8 +66,8 @@ class GraphqlClientWrapperImpl implements GraphqlClientWrapper {
     final gqlLink = _link;
     final token = await tokenProvider?.token();
     if (token != null) {
-      AuthLink authLink = AuthLink(getToken: () => 'Bearer $token');
-      Link link = Link.from([authLink, gqlLink]);
+      final AuthLink authLink = AuthLink(getToken: () => 'Bearer $token');
+      final Link link = Link.from([authLink, gqlLink]);
       return GraphQLClient(cache: GraphQLCache(), link: link);
     } else {
       return GraphQLClient(cache: GraphQLCache(), link: gqlLink);

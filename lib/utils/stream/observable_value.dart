@@ -6,10 +6,11 @@ abstract class ObservableValue<T> {
 }
 
 class BroadcastableValue<T> implements ObservableValue<T> {
-  StreamController<T> _streamController = StreamController.broadcast();
+  final StreamController<T> _streamController = StreamController.broadcast();
 
   T _currentValue;
 
+  @override
   T get currentValue {
     return _currentValue;
   }
@@ -21,9 +22,10 @@ class BroadcastableValue<T> implements ObservableValue<T> {
 
   BroadcastableValue(this._currentValue);
 
+  @override
   Stream<T> get stream => _streamController.stream;
 
-  notify() => _streamController.add(_currentValue);
+  void notify() => _streamController.add(_currentValue);
 
   Future close() => _streamController.close();
 }

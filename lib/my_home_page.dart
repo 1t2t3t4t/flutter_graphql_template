@@ -24,7 +24,7 @@ class MyHomeAssembly extends Assembly {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({required this.title});
+  const MyHomePage({required this.title});
 
   final String title;
 
@@ -85,13 +85,13 @@ class MyHomePageState extends State<MyHomePage> with View<MyHomePagePresenter> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('You have pushed the button this many times:'),
+            const Text('You have pushed the button this many times:'),
             Text(
               '${presenter.counter}',
               style: Theme.of(context).textTheme.headline4,
             ),
             TextButton(
-                onPressed: tapGoToDetail, child: Text("Go to detail page")),
+                onPressed: tapGoToDetail, child: const Text("Go to detail page")),
             Expanded(
                 child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -108,7 +108,7 @@ class MyHomePageState extends State<MyHomePage> with View<MyHomePagePresenter> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

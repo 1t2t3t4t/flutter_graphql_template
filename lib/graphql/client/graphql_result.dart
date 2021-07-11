@@ -20,5 +20,5 @@ class GraphQLResult<T> {
         timestamp = result.timestamp;
 
   /// Whether the response includes an exception
-  bool get hasException => (exception != null);
+  bool get hasException => exception != null;
 }
