@@ -13,7 +13,8 @@ class AlertDialogBuilder {
 
   AlertDialogBuilder(String title,
       {this.forceMaterial = false, this.forceCupertino = false})
-      : _title = Text(title, style: const TextStyle(fontWeight: FontWeight.bold));
+      : _title =
+            Text(title, style: const TextStyle(fontWeight: FontWeight.bold));
 
   factory AlertDialogBuilder.acknowledgeAlert(
       BuildContext context, String title,

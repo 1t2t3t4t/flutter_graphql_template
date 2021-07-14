@@ -9,11 +9,8 @@ import 'my_home_page.dart';
 
 class AppAssembler extends Assembler {
   @override
-  List<Either<Assembly, AssemblyContainer>> get assemblies => [
-        Either.left(MyHomeAssembly()),
-        Either.left(CounterDetailAssembly()),
-        Either.left(CommonAssembly())
-      ];
+  List<Either<Assembly, AssemblyContainer>> get assemblies =>
+      [Either.left(CounterDetailAssembly()), Either.left(CommonAssembly())];
 }
 
 class CommonAssembly extends Assembly {
