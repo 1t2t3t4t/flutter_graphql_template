@@ -15,7 +15,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  MyHomePageState createState() => MyHomePageState();
+  MyHomePageViewState createState() => MyHomePageViewState();
 }
 
 enum MyHomePageEvent { fetchCountry, increase }
@@ -57,11 +57,11 @@ class MyHomePageBloc extends Bloc<MyHomePageEvent, HomePageState> {
   }
 }
 
-class MyHomePageState extends State<MyHomePage> {
+class MyHomePageViewState extends State<MyHomePage> {
   late MyHomePageBloc bloc;
   late CustomRouter _router;
 
-  MyHomePageState() {
+  MyHomePageViewState() {
     _router = Injector.appInstance.get<CustomRouter>();
     bloc = MyHomePageBloc()..add(MyHomePageEvent.fetchCountry);
   }
